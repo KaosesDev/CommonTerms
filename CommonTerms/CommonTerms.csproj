@@ -21,6 +21,8 @@
 		<Description>Simple WPF tool to analyze common words and phrases across files in a directory.</Description>
 		<Copyright>Copyright © Patrick Scott</Copyright>
 		<PackageReadmeFile>ReadMe.md</PackageReadmeFile>
+		<RepositoryUrl>https://github.com/KaosesDev/CommonTerms</RepositoryUrl>
+		<PackageProjectUrl>http://kaosesdev.com</PackageProjectUrl>
 	</PropertyGroup>
 	
 	<PropertyGroup Condition="'$(Configuration)'=='Debug'">
