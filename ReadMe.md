@@ -4,6 +4,8 @@
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 [![Platform](https://img.shields.io/badge/platform-.NET%208-blue.svg)](https://dotnet.microsoft.com/)
 
+[Kaoses Development](http://kaosesdev.com/) - [patreon](https://patreon.com/KaosesDev)
+
 Simple WPF tool to analyze common words and phrases across files in a directory.
 
 ## Summary
@@ -23,22 +25,10 @@ Simple WPF tool to analyze common words and phrases across files in a directory.
 ## Downloads
 
 
-## Installation (developer)
+## Requirements
 
-1. Ensure .NET 8 SDK is installed: `https://dotnet.microsoft.com/`
-2. Clone the repository:
-
-   `git clone <repo-url>`
-
-3. Open the solution in Visual Studio 2022/2023 or VS Code.
-4. Restore packages and build:
-
-   `dotnet restore`
-   `dotnet build --configuration Release`
-
-5. Run the application (from IDE or CLI):
-
-   `dotnet run --project CommonTerms`
+- Windows 10/11
+- [.NET 8.0 Runtime](https://dotnet.microsoft.com/en-us/download/dotnet/8.0)
 
 ## Usage
 
@@ -76,7 +66,3 @@ Guidelines:
 ## License
 
 This project is licensed under the MIT License — see the `LICENSE` file for details.
-
----
-
-If you want, I can add CI workflow examples (GitHub Actions), example output files, or a contributing checklist. Tell me which one to add.
