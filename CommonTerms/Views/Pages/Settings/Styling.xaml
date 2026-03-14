@@ -1,0 +1,75 @@
+﻿<Page x:Class="CommonTerms.Views.Pages.Settings.Styling"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
+      xmlns:helpers="clr-namespace:CommonTerms.Helpers"
+      xmlns:local="clr-namespace:CommonTerms.Views.Pages.Settings"
+      mc:Ignorable="d"
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="Styling">
+
+    <Page.Resources>
+        <helpers:EnumToBooleanConverter x:Key="EnumToBooleanConverter" />
+    </Page.Resources>
+
+    <ScrollViewer>
+        <StackPanel Margin="24,12">
+            <!-- SECTION HEADER -->
+            <TextBlock
+                Text="Personalization"
+                FontSize="22"
+                FontWeight="SemiBold"
+                Margin="0,0,0,12"
+                Style="{StaticResource PageTitleStyle}" />
+
+            <!-- THEME SETTINGS CARD -->
+            <ui:Card Style="{StaticResource WinUISettingsCard}"  Tag="Palette">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+                    <!-- Icon -->
+                    <ui:SymbolIcon
+                        Symbol="PaintBucketBrush28"
+                        Style="{StaticResource IconLarge}" />
+
+                    <!-- Text + Controls -->
+                    <StackPanel Grid.Column="1">
+                        <TextBlock
+                            Text="Theme"
+                            FontSize="16"
+                            FontWeight="SemiBold"
+                            Style="{StaticResource BodyTextStyle}" />
+
+                        <TextBlock
+                            Text="Choose between light and dark mode."
+                            Opacity="0.7"
+                            Margin="0,4,0,12"
+                            Style="{StaticResource SubtitleTextStyle}" />
+
+                        <StackPanel>
+                            <RadioButton
+                                Content="Light"
+                                GroupName="themeSelect"
+                                Command="{Binding ViewModel.ChangeThemeCommand}"
+                                CommandParameter="theme_light"
+                                IsChecked="{Binding ViewModel.CurrentTheme, Converter={StaticResource EnumToBooleanConverter}, ConverterParameter=Light, Mode=OneWay}" />
+
+                            <RadioButton
+                                Content="Dark"
+                                Margin="0,8,0,0"
+                                GroupName="themeSelect"
+                                Command="{Binding ViewModel.ChangeThemeCommand}"
+                                CommandParameter="theme_dark"
+                                IsChecked="{Binding ViewModel.CurrentTheme, Converter={StaticResource EnumToBooleanConverter}, ConverterParameter=Dark, Mode=OneWay}" />
+                        </StackPanel>
+                    </StackPanel>
+                </Grid>
+            </ui:Card>
+        </StackPanel>
+    </ScrollViewer>
+</Page>

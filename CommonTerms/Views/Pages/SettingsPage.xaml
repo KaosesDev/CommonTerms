@@ -1,0 +1,83 @@
+﻿<Page
+    x:Class="CommonTerms.Views.Pages.SettingsPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
+    xmlns:helpers="clr-namespace:CommonTerms.Helpers"
+    Foreground="{DynamicResource TextFillColorPrimaryBrush}"
+>
+
+    <Page.Resources>
+        <helpers:EnumToBooleanConverter x:Key="EnumToBooleanConverter" />
+    </Page.Resources>
+
+    <ScrollViewer>
+        <StackPanel Margin="24">
+
+            <TextBlock Text="Settings"
+                       FontSize="28"
+                       FontWeight="SemiBold"
+                       Margin="0,0,0,24" />
+
+            <!-- GENERAL -->
+            <ui:Card Cursor="Hand"
+                     Padding="20"
+                     Margin="0,0,0,16"
+                     Tag="General"
+                     MouseLeftButtonUp="OnSettingsCardClicked">
+                <StackPanel Orientation="Horizontal">
+                    <ui:SymbolIcon Symbol="Settings48" Width="32" Height="32" Margin="0,0,12,0" />
+                    <StackPanel>
+                        <TextBlock Text="General" FontSize="18" FontWeight="SemiBold" />
+                        <TextBlock Text="System-wide preferences" Opacity="0.7" />
+                    </StackPanel>
+                </StackPanel>
+            </ui:Card>
+
+            <!-- PERSONALIZATION -->
+            <ui:Card Cursor="Hand"
+                     Padding="20"
+                     Margin="0,0,0,16"
+                     Tag="Styling"
+                     MouseLeftButtonUp="OnSettingsCardClicked">
+                <StackPanel Orientation="Horizontal">
+                    <ui:SymbolIcon Symbol="PaintBucketBrush28" Width="32" Height="32" Margin="0,0,12,0" />
+                    <StackPanel>
+                        <TextBlock Text="Personalization" FontSize="18" FontWeight="SemiBold" />
+                        <TextBlock Text="Themes and appearance" Opacity="0.7" />
+                    </StackPanel>
+                </StackPanel>
+            </ui:Card>
+
+            <!-- ABOUT -->
+            <ui:Card Cursor="Hand"
+                     Padding="20"
+                     Margin="0,0,0,16"
+                     Tag="About"
+                     MouseLeftButtonUp="OnSettingsCardClicked">
+                <StackPanel Orientation="Horizontal">
+                    <ui:SymbolIcon Symbol="Info48" Width="32" Height="32" Margin="0,0,12,0" />
+                    <StackPanel>
+                        <TextBlock Text="About" FontSize="18" FontWeight="SemiBold" />
+                        <TextBlock Text="Version and application info" Opacity="0.7" />
+                    </StackPanel>
+                </StackPanel>
+            </ui:Card>
+
+            <!-- DEMO SETTINGS -->
+            <ui:Card Cursor="Hand"
+                     Padding="20"
+                     Margin="0,0,0,16"
+                     Tag="DemoSettingsPage"
+                     MouseLeftButtonUp="OnSettingsCardClicked">
+                <StackPanel Orientation="Horizontal">
+                    <ui:SymbolIcon Symbol="ChatHelp24" Width="32" Height="32" Margin="0,0,12,0" />
+                    <StackPanel>
+                        <TextBlock Text="Demo Settings" FontSize="18" FontWeight="SemiBold" />
+                        <TextBlock Text="demo controls page" Opacity="0.7" />
+                    </StackPanel>
+                </StackPanel>
+            </ui:Card>
+        </StackPanel>
+    </ScrollViewer>
+</Page>

@@ -1,0 +1,93 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+    <ApplicationIcon>Assets\Tray.ico</ApplicationIcon>
+    <UseWPF>true</UseWPF>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+	<AssemblyName>$(MSBuildProjectName)</AssemblyName>
+	<Platforms>AnyCPU;x64;x86</Platforms>
+    <InterceptorsNamespaces>$(InterceptorsNamespaces);Microsoft.Extensions.Configuration.Binder.SourceGeneration</InterceptorsNamespaces>
+  </PropertyGroup>
+
+	<PropertyGroup>
+		<RuntimeIdentifier>win-x64</RuntimeIdentifier>
+		<Title>Common Terms</Title>
+		<Company>KaosesDev</Company>
+		<PackageIcon>icon-256.png</PackageIcon>
+		<PackageTags>kaosesdev,wpf,common terms</PackageTags>
+		<Description>Simple WPF tool to analyze common words and phrases across files in a directory.</Description>
+		<Copyright>Copyright © Patrick Scott</Copyright>
+		<PackageReadmeFile>ReadMe.md</PackageReadmeFile>
+	</PropertyGroup>
+	
+	<PropertyGroup Condition="'$(Configuration)'=='Debug'">
+		<AssemblyName>$(MSBuildProjectName).Debug</AssemblyName>
+	</PropertyGroup>        
+
+	<PropertyGroup Condition="'$(Configuration)'=='Release'">
+		<AssemblyName>$(AssemblyName)</AssemblyName>
+	</PropertyGroup>
+
+	<ItemGroup>
+	  <Compile Remove="Interfaces\**" />
+	  <Compile Remove="Styles\**" />
+	  <EmbeddedResource Remove="Interfaces\**" />
+	  <EmbeddedResource Remove="Styles\**" />
+	  <None Remove="Interfaces\**" />
+	  <None Remove="Styles\**" />
+	  <Page Remove="Interfaces\**" />
+	  <Page Remove="Styles\**" />
+	</ItemGroup>	
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Xaml.Behaviors.Wpf" Version="1.1.142" />
+    <PackageReference Include="Ookii.Dialogs.Wpf" Version="5.0.1" />
+    <PackageReference Include="Serilog.Settings.Configuration" Version="10.0.0" />
+    <PackageReference Include="WPF-UI" Version="4.2.0" />
+    <PackageReference Include="WPF-UI.DependencyInjection" Version="4.2.0" />
+    <PackageReference Include="Microsoft.Extensions.Hosting" Version="10.0.4" />
+    <PackageReference Include="CommunityToolkit.Mvvm" Version="8.4.0 " />
+  </ItemGroup>
+
+	<ItemGroup>
+    <None Remove="Assets\Tray.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Assets\Tray.ico">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Assets\icon-256.png" />
+    <Resource Include="Assets\icon-1024.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Services\Naviagtion\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\ReadMe.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\CommonTermsFunc\CommonTermsFunc.csproj" />
+    <ProjectReference Include="G:\Lazeras\SourceLibraries\Core\Kaoses.Core.System\net8\Kaoses.Core.System\Kaoses.Core.System.csproj" />
+    <ProjectReference Include="G:\Lazeras\SourceLibraries\Wpf Common\WPF-UI-Common\WPF-UI-Common.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="appsettings.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Assets\icon-256.png">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
+</Project>
